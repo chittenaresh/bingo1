@@ -1,24 +1,23 @@
-# Use an official Node.js runtime as a parent image
+# Using Node.js 16 as the base image
 FROM node:16
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+# Setting up the working directory
+WORKDIR /app
 
-# Copy package.json and package-lock.json to the container
+# Copying the package.json and package-lock.json files to the working directory
 COPY package*.json ./
 
-# Install application dependencies
+# Installation of npm dependency
 RUN npm install
 
-# Copy the rest of the application files to the container
+# Copy the application code
 COPY . .
 
-# Build the React app
+# Buildinf of the React app
 RUN npm run build
 
-# Expose port 3000 (assuming your Next.js app runs on port 3000)
+# Expose port 3000 to access app
 EXPOSE 3000
 
-# Define the command to run your application in development mode
-CMD ["npm", "run", "dev"]
-
+# Start your Node.js server
+CMD ["npm", "start"]

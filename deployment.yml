@@ -17,7 +17,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: bingo-app
-        image: chittenaresh/bingo1
+        image: chittenaresh/bingo3
         imagePullPolicy: "Always"
         ports:
         - containerPort: 3000
